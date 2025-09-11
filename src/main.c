@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
             return -1;
         }
 
-        if (create_db_header(dbfd, &dbhdr) == STATUS_ERROR) {
+        if (create_db_header(&dbhdr) == STATUS_ERROR) {
             printf("Failed to create database header");
             return -1;
         }
@@ -71,7 +71,8 @@ int main(int argc, char *argv[]) {
     printf("Newfle: %d\n", newfile);
     printf("Filepath: %s\n", filepath);
 
-    output_file(dbfd, dbhdr);
+    struct employee_t *employees;
+    output_file(dbfd, dbhdr, employees);
 
     return 0;
 }
