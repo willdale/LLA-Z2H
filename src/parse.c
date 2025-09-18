@@ -15,6 +15,14 @@ void list_employees(struct dbheader_t *dbhdr, struct employee_t *employees) {
 }
 
 int add_employee(struct dbheader_t *dbhdr, struct employee_t *employees, char *addstring) {
+    if (dbhdr == NULL) {
+        return STATUS_ERROR;
+    }
+
+    if (addstring == NULL) {
+        return STATUS_ERROR;
+    }
+
     char *name = strtok(addstring, ",");
     char *address = strtok(NULL, ",");
     char *hours = strtok(NULL, ",");
